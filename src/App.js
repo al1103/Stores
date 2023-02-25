@@ -83,7 +83,10 @@ function App() {
     "theme",
     defaultDark ? "dark" : "light"
   );
-  const [account, setAccount] = useState(false);
+  const storedAccount = localStorage.getItem("account");
+  const [account, setAccount] = useState(
+    storedAccount ? JSON.parse(storedAccount) : null
+  );
   const [showBag, setShowBag] = useState(false);
 
   const Bag = {

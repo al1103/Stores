@@ -16,8 +16,9 @@ import Notification from "../../components/Notification/Notification";
 
 const cx = classNames.bind(styles);
 function Login() {
-  let Navigator = useNavigate();
+  // let Navigator = useNavigate();
   const [account, setAccount] = useContext(Bags).account;
+  console.log(account);
   async function handleSubmit(value) {
     const response = await fetch(
       `https://api-by-zilong.onrender.com/users?email=${value.email}`,
@@ -36,13 +37,10 @@ function Login() {
       if (data[0].password === value.password) {
         alert("success", "Đăng nhập thành công");
         setAccount(data[0]);
-        console.log(data[0]);
         localStorage.setItem("account", JSON.stringify(data[0]));
-        setTimeout(() => {
-          Navigator("/");
-        }, 2000);
+        setTimeout(() => {}, 2000);
       } else {
-        alert("error Sai mật khẩu");
+        alert("error", "Mật khẩu không đúng");
       }
     }
   }
@@ -69,12 +67,7 @@ function Login() {
   const [eye, setEye] = useState(false);
   return (
     <div className={cx("login__phone")}>
-      <div
-        className={cx("login__out")}
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
+      <div className={cx("login__out")}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <title>Arrow Back Circle</title>
           <path
@@ -121,8 +114,6 @@ function Login() {
           handleSubmit(values);
           setTimeout(() => {
             setSubmitting(false);
-            setAccount(values);
-            navigate("/");
           }, 1000);
         }}
       >
@@ -212,7 +203,7 @@ function Login() {
             ) : null}
             <button
               type="submit"
-              // onClick={show}
+              onClick={show}
               disabled={isSubmitting}
               className={cx("btn-login")}
             >
