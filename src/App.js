@@ -83,7 +83,7 @@ function App() {
     "theme",
     defaultDark ? "dark" : "light"
   );
-  const [account, setAccount] = useState([]);
+  const [account, setAccount] = useState(false);
   const [showBag, setShowBag] = useState(false);
 
   const Bag = {
@@ -92,7 +92,6 @@ function App() {
     account: [account, setAccount],
     ref: [ref],
   };
-  console.log(account);
   // if (isLoading) {
   //   return null;
   // }
