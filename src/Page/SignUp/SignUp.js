@@ -10,6 +10,8 @@ import styles from "./SignUp.module.scss";
 
 const cx = classNames.bind(styles);
 function SignUp() {
+  const [notification] = useContext(Bags).ref;
+
   let navigate = useNavigate();
   const [account, setAccount] = useContext(Bags).account;
   const [id_user] = useState(uuidv4());
@@ -19,6 +21,20 @@ function SignUp() {
       .addEventListener("paste", function (e) {
         e.preventDefault();
       });
+  };
+  const [classShow] = useState("top-right");
+
+  const show = () => {
+    notification.current.classList.add(classShow);
+    setTimeout(() => {
+      hidden();
+    }, 2000);
+  };
+  const hidden = () => {
+    const Check = notification.current;
+    if (Check) {
+      notification.current.classList.remove(classShow);
+    }
   };
   async function handleSubmit(values) {
     try {
@@ -144,9 +160,8 @@ function SignUp() {
             onSubmit={(values, { setSubmitting }) => {
               handleSubmit(values);
               setAccount(values);
-              alert("suscess");
+              show();
               localStorage.setItem("account", JSON.stringify(values));
-              console.log(values);
               setTimeout(() => {
                 setSubmitting(false);
                 navigate("/");

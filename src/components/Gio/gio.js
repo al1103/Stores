@@ -1,18 +1,38 @@
 import React, { useEffect, useState, useReducer, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
 import Header from "../../components/Header/Header";
 import style from "./gio.module.scss";
+import { Bags } from "../../App";
 const cx = classNames.bind(style);
 function Cart() {
+  const [notification] = useContext(Bags).ref;
+
   const [total, setTotal] = useState(0);
   const [prices, setPrices] = useState(0);
   const [discountCodes, setDiscountCodes] = useState([]);
+  const [account] = useContext(Bags).account;
   const [code, setCode] = useState("");
+  const [popup, setPopup] = useState(false);
   const [product] = useState(() => {
     const localData = JSON.parse(localStorage.getItem("cart"));
     return localData ?? [];
   });
+  const [classShow] = useState("top-right");
+
+  const show = () => {
+    notification.current.classList.add(classShow);
+    setTimeout(() => {
+      hidden();
+    }, 2000);
+  };
+  const hidden = () => {
+    const Check = notification.current;
+    if (Check) {
+      notification.current.classList.remove(classShow);
+    }
+  };
+  let navigate = useNavigate();
   async function handleProduct() {
     try {
       const response = await fetch("https://api-by-zilong.onrender.com/code");
@@ -23,13 +43,7 @@ function Cart() {
     }
   }
   function handleSubmit(event) {
-    event.preventDefault();
-    try {
-      let user = event.target;
-      console.log(user);
-    } catch (error) {
-      console.log(error);
-    }
+    account ? show() : setPopup(true);
   }
   const reducer = (state, action) => {
     switch (action.type) {
@@ -158,8 +172,6 @@ function Cart() {
 
   function handleCode(e) {
     e.preventDefault();
-    // let form = document.getElementById("discount-form");
-    // let code = form.elements["discount-code"].value;
 
     let discountCode = discountCodes.find(
       (discount) => discount.code.toLowerCase() === code.toLowerCase()
@@ -184,7 +196,6 @@ function Cart() {
   useEffect(() => {
     handleProduct();
   }, []);
-  // end discount code
   if (product.length === 0) {
     return (
       <div>
@@ -422,7 +433,7 @@ function Cart() {
                 >{`$ ${prices}`}</div>
               </div>
               <div className={cx("cart__cost__button")}>
-                <button onSubmit={(event) => handleSubmit(event)}>
+                <button onClick={(event) => handleSubmit(event)}>
                   Check out
                 </button>
               </div>
@@ -432,6 +443,63 @@ function Cart() {
         <Link rel="stylesheet" to="/">
           <button className={cx("home")}>Go Home</button>
         </Link>
+        {popup && (
+          <div className={cx("popup__check__login")}>
+            <div className={cx("img_notification")}>
+              <img
+                src="https://i.pinimg.com/564x/27/12/78/2712783a51db30c04af34a6f6d05f805.jpg"
+                alt=""
+              />
+            </div>
+            <div className={cx("popup__check__login__content")}>
+              <div className={cx("popup__check__login__content__close")}>
+                <button
+                  className={cx("close")}
+                  onClick={() => {
+                    setPopup(false);
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <title>Close</title>
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="32"
+                      d="M368 368L144 144M368 144L144 368"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div className={cx("popup__check__login__content__title")}>
+                <h2>Hey Wait!!</h2>
+                <h6>
+                  Are you sure .You have not logged into your account, if you
+                  want to buy products, please login!
+                </h6>
+              </div>
+              <div className={cx("popup__check__login__button")}>
+                <button
+                  className={cx("login")}
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Login
+                </button>
+                <button
+                  className={cx("cancel")}
+                  onClick={() => {
+                    setPopup(false);
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </>
     );
   }

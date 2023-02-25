@@ -99,22 +99,21 @@
   }
 }
 .login__fb,.login__github  {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   top: 556px;
-  border: 1px solid var(--text-primary);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 }
 .login__fb{
     left: 105px;
-    & svg {
-    background-color: #1b74e4;
-    }
+    
 }
 .login__github {
   left: 250px;

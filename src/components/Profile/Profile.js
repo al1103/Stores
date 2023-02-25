@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 import style from "./Profile.module.scss";
+import { Bags } from "../../App";
 const Cx = classNames.bind(style);
 
 function Profile() {
@@ -9,6 +10,21 @@ function Profile() {
   const [getid, setGetid] = useState();
   const navigate = useNavigate();
   const [account, setAccount] = useState({});
+  const [notification] = useContext(Bags).ref;
+  const [classShow] = useState("top-right");
+
+  const show = () => {
+    notification.current.classList.add(classShow);
+    setTimeout(() => {
+      hidden();
+    }, 2000);
+  };
+  const hidden = () => {
+    const Check = notification.current;
+    if (Check) {
+      notification.current.classList.remove(classShow);
+    }
+  };
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(
@@ -70,7 +86,7 @@ function Profile() {
         id_user: id,
       })
     );
-    alert("Update Success");
+    show();
     navigate("/");
   };
   const handleViewAvatar = () => {

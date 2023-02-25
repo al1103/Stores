@@ -35,7 +35,6 @@ function Header() {
   if (Account_Image) {
     ({ Image, id_user } = Account_Image);
   }
-  console.log(account);
 
   const SettingAccount = [
     {

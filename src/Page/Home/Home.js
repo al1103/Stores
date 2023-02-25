@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import style from "./Home.module.scss";
 import Header from "../../components/Header/Header";
@@ -12,6 +12,8 @@ import Cart from "../../components/Cart/Cart";
 import Footer from "../../components/Footer/Footer";
 import Profile from "../../components/Profile/Profile";
 // eslint-disable-next-line
+const [count, setCount] = useState(0);
+
 const cx = classNames.bind(style);
 function Home() {
   return (
