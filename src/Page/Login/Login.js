@@ -38,7 +38,6 @@ function Login() {
         alert("success", "Đăng nhập thành công");
         setAccount(data[0]);
         localStorage.setItem("account", JSON.stringify(data[0]));
-        setTimeout(() => {}, 2000);
       } else {
         alert("error", "Mật khẩu không đúng");
       }

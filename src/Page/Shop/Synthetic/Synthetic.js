@@ -28,13 +28,13 @@ function Synthetic() {
     setLimit(newLimit + 5);
   }
   function handleCheckMore() {
-    // setTimeout(() => {
-    //   if(limit<length){
-    //   ref.current.style.display="flex";
-    // }else{
-    //   ref.current.style.display="none";
-    //   }},2000)
+    if (productsItem.length < limit) {
+      ref.current.style.display = "none";
+    } else {
+      ref.current.style.display = "flex";
+    }
   }
+
   const hidden = () => {
     notification.current.classList.remove("top-right");
   };
@@ -53,6 +53,11 @@ function Synthetic() {
       setMain(false);
     }
   }
+  useEffect(() => {
+    getProducts(`armor?_limit=${limit}`);
+    handleCheckMore();
+  }, [limit]);
+
   // var end = console.timeEnd("getProducts");
   // console.log(end);
   // console.log(end);
@@ -87,7 +92,7 @@ function Synthetic() {
     getProducts(`armor?_limit=${limit}`);
     setLength(productsItem.length);
     handleCheckMore();
-  }, [limit, productsItem.length]);
+  }, [productsItem.length]);
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItem));
   }, [cartItem]);

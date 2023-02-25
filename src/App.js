@@ -87,6 +87,7 @@ function App() {
   const [account, setAccount] = useState(
     storedAccount ? JSON.parse(storedAccount) : null
   );
+  console.log(account);
   const [showBag, setShowBag] = useState(false);
 
   const Bag = {

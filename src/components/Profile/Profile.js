@@ -6,17 +6,21 @@ const Cx = classNames.bind(style);
 
 function Profile() {
   let { id } = useParams();
-
+  const [getid, setGetid] = useState();
   const navigate = useNavigate();
   const [account, setAccount] = useState({});
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(
-        `https://api-by-zilong.onrender.com/users/${id}`
+        `https://api-by-zilong.onrender.com/users?id_user=${id}`,
+        {
+          method: "GET",
+        }
       );
       const data = await response.json();
       if (data) {
-        const { Image, firstname, lastname, email, password, bio } = data;
+        const { Image, firstname, lastname, email, password, bio, id } =
+          data[0];
         setUserImage(Image);
         setUserFirstname(firstname);
         setUserLastname(lastname);
@@ -24,6 +28,7 @@ function Profile() {
         setUserPassword(password);
         setUserBio(bio);
         setAccount(data);
+        setGetid(id);
       }
     };
     fetchUser();
@@ -37,7 +42,8 @@ function Profile() {
 
   const handleHome = async () => {
     const fetchUser = await fetch(
-      `https://api-by-zilong.onrender.com/users/${id}`,
+      `https://api-by-zilong.onrender.com/users/${getid}`,
+
       {
         method: "PATCH",
         headers: {
@@ -49,7 +55,7 @@ function Profile() {
           lastname: userLastname,
           password: userPassword,
           bio: userBio,
-          id: id,
+          // id_user: id,
         }),
       }
     );
@@ -61,7 +67,7 @@ function Profile() {
         lastname: userLastname,
         password: userPassword,
         bio: userBio,
-        id: id,
+        id_user: id,
       })
     );
     alert("Update Success");

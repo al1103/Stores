@@ -30,10 +30,10 @@ function Header() {
     setCount(countItems.length);
   }, []);
   const Account_Image = JSON.parse(localStorage.getItem("account"));
-  let Image, id;
+  let Image, id_user;
 
   if (Account_Image) {
-    ({ Image, id } = Account_Image);
+    ({ Image, id_user } = Account_Image);
   }
   console.log(account);
 
@@ -288,7 +288,7 @@ function Header() {
                                       alert("English");
                                       break;
                                     case "view profile":
-                                      navigate(`/profile/${id}`);
+                                      navigate(`/profile/${id_user}`);
                                       break;
                                     default:
                                       break;
@@ -417,7 +417,7 @@ function Header() {
                                   alert("English");
                                   break;
                                 case "view profile":
-                                  navigate(`/profile/${id}`);
+                                  navigate(`/profile/${id_user}`);
                                   break;
                                 default:
                                   break;

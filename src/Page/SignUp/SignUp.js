@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { v4 as uuidv4 } from "uuid";
 import { Bags } from "../../App";
 
 import classNames from "classnames/bind";
@@ -10,8 +11,8 @@ import styles from "./SignUp.module.scss";
 const cx = classNames.bind(styles);
 function SignUp() {
   let navigate = useNavigate();
-
   const [account, setAccount] = useContext(Bags).account;
+  const [id_user] = useState(uuidv4());
   const paste = () => {
     document
       .getElementById("confirmPassword")
@@ -32,7 +33,7 @@ function SignUp() {
       console.log(err);
     }
   }
-
+  console.log(id_user);
   return (
     <div className={cx("body")}>
       <div className={cx("Sign__Up")}>
@@ -47,7 +48,7 @@ function SignUp() {
               lastname: "",
               email: "",
               password: "",
-              confirmPassword: "",
+              id_user: id_user,
             }}
             validateOnChange={false} // disable
             validateOnBlur={false} // disable
@@ -143,13 +144,13 @@ function SignUp() {
             onSubmit={(values, { setSubmitting }) => {
               handleSubmit(values);
               setAccount(values);
-              console.log(values);
               alert("suscess");
+              localStorage.setItem("account", JSON.stringify(values));
+              console.log(values);
               setTimeout(() => {
                 setSubmitting(false);
-                localStorage.setItem("account", JSON.stringify(values));
                 navigate("/");
-              }, 3000);
+              }, 1000);
             }}
           >
             {({
