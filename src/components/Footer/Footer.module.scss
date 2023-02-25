@@ -7,8 +7,11 @@
   white-space: nowrap;
   overflow: hidden;
 }
-footer {
+.footer{
   width: var(--width);
+}
+footer {
+  width: 100%;
   overflow: hidden;
   font-weight: 500;
   font-size: 14px;

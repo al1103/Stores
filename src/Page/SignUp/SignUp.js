@@ -65,6 +65,7 @@ function SignUp() {
               email: "",
               password: "",
               id_user: id_user,
+              products: [],
             }}
             validateOnChange={false} // disable
             validateOnBlur={false} // disable

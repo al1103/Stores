@@ -9,9 +9,7 @@ function Main() {
   const Notification = { ...useContext(Bags).ref[0] };
   const [main, setMain] = useState(true);
   const [productsItem, setProductsItem] = useState([]);
-  const [cartItem, setCartItem] = useState(
-    localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
-  );
+  const [cartItem, setCartItem] = useState([]);
 
   const [classShow] = useState("top-right");
   const show = () => {
@@ -23,6 +21,7 @@ function Main() {
   const hidden = () => {
     Notification.current.classList.remove(classShow);
   };
+
   async function getProducts(Products) {
     try {
       let response = await fetch(
@@ -38,6 +37,11 @@ function Main() {
       setMain(false);
     }
   }
+  // useEffect(() => {
+  //   getProducts("users");
+  //   console.log(productsItem);
+  // }, []);
+
   // var end = console.timeEnd("getProducts");
   // console.log(end);
   // console.log(end);

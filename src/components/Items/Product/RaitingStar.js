@@ -9,6 +9,7 @@ const RatingStar = () => {
 };
 
 const Rating = (props) => {
+  console.log(props);
   const { rate, count } = props.rating;
   let stars = [];
   for (let i = 0; i < rate; i++) {
