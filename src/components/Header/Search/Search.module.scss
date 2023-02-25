@@ -1,0 +1,144 @@
+.close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  top: 3px;
+  right: 11px;
+  cursor: pointer;
+  z-index: 1;
+
+  svg {
+    color: rgb(150, 148, 148);
+    transition: all 0.3s linear;
+  }
+}
+
+.searchInput {
+  border-radius: 15px;
+  border: 1px solid var(--text-primary);
+  width: 100%;
+  height: 36px;
+  padding: 0 10px 0 10px;
+  letter-spacing: 2px;
+  outline: none;
+  background-color: transparent;
+  transition: all 0.5s linear;
+  margin: 0;
+
+  &::placeholder {
+    color: rgb(150, 148, 148);
+  }
+
+  &:not(:placeholder-shown)~.close>svg {
+    color: red;
+  }
+  &:focus{
+  border: 2px solid var(--text-primary);
+  }
+}
+
+.button {
+  width: 35px;
+  height: 35px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s linear;
+
+  & svg {
+    width: 25px;
+    height: 25px;
+    transition: all 0.3s linear;
+  }
+
+  &:hover {
+    background-color: rgb(150, 148, 148);
+
+    svg {
+      color: rgb(255, 255, 255);
+    }
+
+    opacity: 0.5;
+    color: blue;
+  }
+}
+
+.val {
+  position: relative;
+  width: 100%;
+  width: 250px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: inline-block;
+  background-color: transparent;
+  z-index: 1;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
+
+.boxTippy {
+  width: 230px;
+  width: 250px;
+  height: fit-content;
+  max-height: 400px;
+  overflow: hidden;
+  margin-top: 8px;
+ 
+  backdrop-filter: blur(10px);
+  background-color: #ffffff6b;
+  border-left: 1px solid var(--text-primary);
+  border-right: 1px solid var(--text-primary);
+  border-bottom: 1px solid var(--text-primary);
+  position: relative;
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cfilter%20id%3D%22noise%22%3E%20%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.875%22%20result%3D%22noise%22%20%2F%3E%20%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200.1796875%200%22%20%2F%3E%20%3C%2Ffilter%3E%20%3Crect%20filter%3D%22url%28%23noise%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22512%22%20height%3D%22512%22%20fill%3D%22transparent%22%20opacity%3D%221%22%20%2F%3E%3C%2Fsvg%3E);
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    width: 100%;
+  }
+
+  .search {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    margin: 0;
+    display: inline-block;
+  }
+
+  .searchInput {
+    border-radius: 10px;
+    border: 2px solid rgb(92, 52, 138);
+    width: 100%;
+    height: 35px;
+    padding: 0 10px 0 10px;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.3s linear;
+
+    margin: 0;
+
+    &::placeholder {
+      color: rgb(150, 148, 148);
+    }
+
+    &:not(:placeholder-shown)~.close>svg {
+      color: red;
+    }
+  }
+}

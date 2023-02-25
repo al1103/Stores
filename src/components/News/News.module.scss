@@ -1,0 +1,30 @@
+.swiper {
+  width: var(--width);
+  margin: 50px auto;
+  font-family: Alcubierre, sans-serif, Arial, Helvetica, sans-serif;
+}
+.swiper__container {
+  height: auto;
+}
+:global(.swiper-pagination-bullets.swiper-pagination-horizontal) {
+  bottom: 0px;
+}
+.swiper__slide {
+  margin: 50px auto;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+:global(.swiper-wrapper) {
+  display: flex;
+  align-self: center;
+}
+@media screen and (max-width: 480px) {
+  .swiper__slide {
+    margin: 20px auto;
+    height: 210px;
+  }
+  .swiper__container {
+    height: 275px;
+  }
+}

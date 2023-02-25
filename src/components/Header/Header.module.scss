@@ -1,0 +1,339 @@
+.header {
+  position: relative;
+  box-shadow: 0 0 0 1px var(--text-primary);
+  background-color: var(--background);
+  color: var(--text-primary);
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  
+}
+.headerLeft {
+  display: inline-block;
+  position: absolute;
+  height: 100%;
+  width: 70%;
+  max-width: 70%;
+  transition: width 0.5s linear;
+  left: 0;
+  & .logo {
+    width: 130px;
+    position: absolute;
+    padding-left: 30px;
+    z-index: 100;
+    background-color: var(--background);
+    color: var(--text-primary);
+    left: 0;
+    height: 100%;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.SignIn,
+.tall__width {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.button__Bag,
+.button {
+  width: 30px;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  height: 30px;
+  background-color: transparent;
+
+  cursor: pointer;
+  & svg {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    color: var(--text-primary);
+    object-fit: cover;
+  }
+}
+.button__Bag {
+  position: relative;
+  & .bag__count {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.button {
+  display: flex;
+  border-radius: 20px;
+  border: 1px solid;
+  padding: 15px 35px
+}
+.contents__setting {
+  transition: all 0.5s linear;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.397);
+}
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+.closeNavbar{
+  width: 100%;
+  height: 40px;
+  background-color: transparent;
+  margin: 20px 0;
+
+
+}
+.IconClose{
+  width: 40px;
+  float: right;     
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  & svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.search__mobile {
+  height: 30px;
+  z-index: 100;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search__mobile {
+  width: 100%;
+  height: 30px;
+}
+.close {
+  position: absolute;
+  height: 30px;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: 100;
+}
+.close__ {
+  width: 30px;
+  position: absolute;
+  left: 0;
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  & svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--text-primary);
+  cursor: pointer;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: fit-content;
+  text-align: left;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--text-primary);
+  background-color: var(--background);
+  color: var(--text-primary);
+  border-radius: 5px;
+  padding: 10px 0;
+  margin-right: -20px;
+
+  margin-top: 8px;
+  font-family: "averta", "Courier New", Courier, "Lucida Sans Typewriter",
+    "Lucida Typewriter", monospace;
+}
+.box__content {
+  width: 100%;
+  text-align: left;
+
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 20px;
+  & svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  &:hover {
+    background-color: #a7a7a7;
+  }
+}
+.navita {
+  width: 100%;
+}
+.show__setting {
+  outline: none;
+  position: absolute;
+  margin: 5px 10px;
+  right: 0;
+  top: 0;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.setting {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  & .show__setting {
+    outline: none;
+    position: absolute;
+    margin: 5px 10px;
+    right: 0;
+    top: 0;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@media screen and (max-width: 762px) {
+  .header{
+    height: 40px;
+  }
+  .below{
+    width: 100%;
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #000;
+  }
+  .logo_mobile{
+    width: 100px;
+    float: left;
+    height: 50px;
+    margin: 0 10px;
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .tall__width{
+    width: 120px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header {
+    height: 50px;
+  }
+
+  .headerLeft {
+    width: 50%;
+
+    & .logo {
+      width: 100px;
+      margin: 0 10px;
+    }
+  }
+
+  .setting {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+
+    & .show__setting {
+      outline: none;
+      position: absolute;
+      margin: 5px 10px;
+      right: 0;
+      top: 0;
+      border: none;
+      background-color: transparent;
+      width: 30px;
+      height: 30px;
+
+      & svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .SignIn {
+    margin-right: 0;
+  }
+
+  .three {
+    display: none;
+  }
+}

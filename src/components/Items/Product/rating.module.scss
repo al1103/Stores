@@ -1,0 +1,30 @@
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  &>img {
+    width: 20px;
+    height: 20px;
+    color: yellow;
+    z-index: 1;
+  }
+}
+
+.count {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 480px) {
+  .rating {
+    & img {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

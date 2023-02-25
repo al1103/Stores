@@ -1,0 +1,351 @@
+.globalNav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  padding: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%20%3Cfilter%20id%3D%22noise%22%3E%20%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.875%22%20result%3D%22noise%22%20%2F%3E%20%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220.140625%200%200%200%200%200%200.14453125%200%200%200%200%200%200.25%200%200%200%200%200%200.4375%200%22%20%2F%3E%20%3C%2Ffilter%3E%20%3Crect%20filter%3D%22url%28%23noise%29%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22512%22%20height%3D%22512%22%20fill%3D%22transparent%22%20opacity%3D%221%22%20%2F%3E%3C%2Fsvg%3E");
+  user-select: none;
+}
+.writeText {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+  align-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  word-spacing: 5px;
+  user-select: none;
+  white-space: nowrap;
+  font-size: 5rem;
+  font-family: "averta", "Courier New", Courier, "Lucida Sans Typewriter",
+    "Lucida Typewriter", monospace;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  & p {
+    font-size: 2rem;
+    color: black;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+  & h4 {
+    color: black;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+  & h1 {
+    letter-spacing: 6px;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+.img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  height: 30rem;
+  width: auto;
+  filter: drop-shadow(35px 20px 7px rgb(0, 0, 0));
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.buttonShop {
+  position: absolute;
+  top: 80%;
+  left: 16%;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.medium {
+  & .writeText {
+    top: 45%;
+    left: 30%;
+    font-size: 2rem;
+    & p {
+      margin: 0;
+      font-size: 1rem;
+    }
+    & h4 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    & h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+  }
+  & .img {
+    height: 15rem;
+    left: 70%;
+  }
+
+  & .buttonShop {
+    left: 25%;
+  }
+}
+.small {
+  & .writeText {
+    top: 35%;
+    left: 35%;
+    & p {
+      font-size: 0.8rem;
+    }
+    & h4 {
+      font-size: 1rem;
+      margin: 0;
+    }
+    & h1 {
+      font-size: 1.8rem;
+    }
+  }
+  & .img {
+    height: 10rem;
+    left: 70%;
+    top: 60%;
+  }
+  & .buttonShop {
+    top: 65%;
+    left: 35%;
+  }
+}
+.large {
+  & .writeText {
+    font-size: 3rem;
+    & p {
+      font-size: 1.2rem;
+    }
+  }
+  & .img {
+    height: 40rem;
+  }
+  & .buttonShop {
+    top: 80%;
+    left: 16%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .globalNav {
+    & .writeText {
+      width: 90%;
+      top: 35%;
+      left: 50%;
+      & p {
+        font-size: 1rem;
+      }
+      & h4 {
+        font-size: 1.4rem;
+        margin: 0.3rem;
+      }
+      & h1 {
+        font-size: 1.7rem;
+      }
+    }
+    & .img {
+      height: 10rem;
+      left: 70%;
+      top: 60%;
+    }
+    & .buttonShop {
+      top: 75%;
+      left: 50%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .globalNav {
+    & .writeText {
+      top: 35%;
+      left: 55%;
+      & p {
+        font-size: 1.2rem;
+      }
+      & h4 {
+        font-size: 2rem;
+        margin: 0.5rem;
+      }
+      & h1 {
+        font-size: 3rem;
+      }
+    }
+    & .img {
+      height: 10rem;
+      left: 70%;
+      top: 60%;
+    }
+    & .buttonShop {
+      top: 75%;
+      left: 25%;
+    }
+  }
+  .small {
+    & .writeText {
+      top: 35%;
+      left: 55%;
+      text-align: left;
+      & p {
+        font-size: 0.6rem;
+      }
+      & h4 {
+        font-size: 1rem;
+        margin: 0.4rem;
+        margin-left: 0;
+      }
+      & h1 {
+        margin: 0.8rem;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        margin-left: 0;
+      }
+    }
+    & .img {
+      height: 10rem;
+      left: 70%;
+      top: 60%;
+    }
+    & .buttonShop {
+      top: 65%;
+      left: 25%;
+    }
+    .medium {
+      & .writeText {
+        top: 35%;
+        left: 35%;
+        & p {
+          font-size: 0.8rem;
+        }
+        & h4 {
+          font-size: 1rem;
+          margin: 0.5rem;
+        }
+        & h1 {
+          margin: 1rem;
+          font-size: 1.8rem;
+        }
+      }
+      & .img {
+        height: 10rem;
+        left: 70%;
+        top: 60%;
+      }
+      & .buttonShop {
+        top: 65%;
+        left: 25%;
+      }
+      .large {
+        & .writeText {
+          top: 35%;
+          left: 35%;
+          & p {
+            font-size: 0.8rem;
+          }
+          & h4 {
+            font-size: 1rem;
+            margin: 0.5rem;
+          }
+          & h1 {
+            margin: 1rem;
+            font-size: 1.8rem;
+          }
+        }
+        & .img {
+          height: 10rem;
+          left: 70%;
+          top: 60%;
+        }
+        & .buttonShop {
+          top: 65%;
+          left: 25%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .writeText {
+    & p {
+      font-size: 0.5rem;
+    }
+    & h4 {
+      font-size: 1rem;
+    }
+    & h1 {
+      font-size: 2rem;
+    }
+  }
+  .small {
+    & .writeText {
+      font-size: 0.5rem;
+      top: 35%;
+      left: 60%;
+      & p {
+        font-size: 0.4rem;
+        margin: 0;
+        padding-left: 10px;
+      }
+      & h4 {
+        font-size: 0.6rem;
+        margin: 0.2rem;
+        padding-left: 5px;
+      }
+      & h1 {
+        font-size: 1rem;
+        letter-spacing: 2px;
+        margin: 0.4rem;
+      }
+    }
+    & .img {
+      height: 5rem;
+      left: 70%;
+      top: 60%;
+    }
+    & .buttonShop {
+      top: 80%;
+      left: 30%;
+    }
+  }
+  .medium {
+    & .writeText {
+      top: 45%;
+      left: 30%;
+      font-size: 1rem;
+      & p {
+        font-size: 0.5rem;
+        line-height: 15px;
+      }
+    }
+    & .img {
+      height: 7rem;
+      left: 70%;
+    }
+
+    & .buttonShop {
+      left: 21%;
+    }
+  }
+  .large {
+    & .writeText {
+      font-size: 1.5rem;
+      & p {
+        font-size: 0.6rem;
+      }
+    }
+    & .img {
+      height: 20rem;
+    }
+    & .buttonShop {
+      top: 80%;
+      left: 16%;
+    }
+  }
+}

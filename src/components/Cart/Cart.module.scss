@@ -1,0 +1,32 @@
+.cart {
+  height: 100vh;
+  width: 40%;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  right: 0;
+  top: 0;
+  z-index: 100;
+  transition: all 1s linear;
+  &.active {
+    transform: translateX(0);
+  }
+}
+.filter {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.192);
+  z-index: 99;
+  &::before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.05);
+    filter: blur(10px);
+  }
+}

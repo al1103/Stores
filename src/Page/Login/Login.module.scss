@@ -1,0 +1,219 @@
+.login__out {
+  box-sizing: border-box;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 20px;
+  left: 20px;
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+.login__phone {
+  position: absolute;
+  width: 414px;
+  height: 100vh;
+  background:var(--background);
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.create-account {
+  position: absolute;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  width: 100%;
+  text-align: end;
+  top: 100px;
+  font-size: 18px;
+  & a {
+    padding-right: 12px;
+    color: var(--text-primary);
+  }
+}
+.email,
+.password,
+.btn-login {
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  width: 320px;
+  height: 50px;
+  background: #d9d9d9;
+  border: 1px solid var(--text-primary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+.btn-login {
+  cursor: pointer;
+}
+
+.form {
+  top: 150px;
+
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+}
+.Or {
+  position: absolute;
+  width: 21px;
+  height: 22px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  left: 196px;
+  top: 420px;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  color: var(--text-primary);
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 1px;
+    background: var(--text-primary);
+    top: 50%;
+    left: 150%;
+    transform: translateY(-50%);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 1px;
+    background: var(--text-primary);
+    top: 50%;
+    right: 150%;
+    transform: translateY(-50%);
+  }
+}
+.login__fb,.login__github  {
+  width: 40px;
+  height: 40px;
+  top: 556px;
+  border: 1px solid var(--text-primary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.login__fb{
+    left: 105px;
+    & svg {
+    background-color: #1b74e4;
+    }
+}
+.login__github {
+  left: 250px;
+  
+}
+.forgot__password {
+  position: absolute;
+  top: 550px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.error {
+  padding-left: 45px;
+  color: red;
+  font-size: 12px;
+  font-weight: 600;
+  height: 40px;
+  padding-top: 10px;
+  margin-top: -20px;
+}
+.title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--text-primary);
+  font-family: "Inter";
+  line-height: 22px;
+  /* identical to box height */
+}
+.icon__login {
+  position: absolute;
+  width: 70%;
+  top: 470px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  
+}
+.input__pass {
+  position: relative;
+  width: 350px;
+  left: 50%;
+  margin-bottom: 20px;
+  transform: translateX(-50%);
+  height: 50px;
+  & svg {
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.next__page {
+  position: absolute;
+  width: 320px;
+  height: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d9d9d9;
+  cursor: pointer;
+}
+
+.btn {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d9d9d9;
+  cursor: pointer;
+  border: 1px solid var(--text-primary);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  padding-left: 10px;
+  top: 50%;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.top-right {
+  top: 12px;
+  transform: translateX(0) !important;
+  transition: transform 0.6s ease-in-out;
+  // animation: toast-in-right 0.7s;
+}

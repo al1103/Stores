@@ -1,0 +1,239 @@
+.Button {
+  cursor: pointer;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: "Alcubierre", sans-serif, cursive, monospace, fantasy, serif;
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  border-radius: 2.5rem;
+  transition: all 0.2s ease-in-out;
+  -webkit-appearance: none;
+  border: 1px solid #ffffff81;
+  color: #ffffff;
+  background-color: #6746ed;
+  background-image: linear-gradient(
+    45deg,
+    #ed6e46 0%,
+    rgba(103, 70, 237, 0.008) 100%
+  );
+  background-position: 0% 0%;
+  background-repeat: repeat;
+  background-size: cover;
+  box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.1);
+  -moz-appearance: none;
+  appearance: none;
+  & span {
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 2.2px;
+    vertical-align: middle;
+  }
+  &:hover {
+    background-color: var(--background);
+    color: var(--text-primary);
+  }
+
+  &:active {
+    background-color: var(--background);
+    color: var(--text-primary);
+  }
+}
+
+.small {
+  padding: 0 32px;
+  height: 32px;
+  border-radius: 1rem;
+  & span {
+    font-size: 0.8rem;
+  }
+}
+.medium {
+  padding: 0 44px;
+  border-radius: 1.5rem;
+
+  height: 44px;
+  & span {
+    font-size: 1rem;
+  }
+}
+.large {
+  padding: 20px 64px;
+  height: 64px;
+  & span {
+    font-size: 1.2rem;
+  }
+  &:hover {
+    color: var(--text-primary);
+  }
+  &:active {
+    color: var(--text-primary);
+  }
+}
+
+.primary {
+  padding: 0 20px;
+  height: 35px;
+  & span {
+    font-size: 0.7rem;
+  }
+  &:hover {
+    background-color: #ff3b38d7;
+    color: white;
+  }
+  &:active {
+    background-color: #ff3c38;
+    color: white;
+  }
+}
+.shoppingCart {
+  padding: 0 52px;
+  margin-top: 20px;
+  height: 52px;
+  & span {
+    font-size: 1.2rem;
+  }
+  &:hover {
+    background-color: #5c95ffa8;
+    color: white;
+  }
+  &:active {
+    background-color: #5c95ff;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .small {
+    padding: 0 12px;
+    height: 25px;
+    & span {
+      font-size: 0.4rem;
+    }
+  }
+  .medium {
+    padding: 0 44px;
+    height: 44px;
+    & span {
+      font-size: 1rem;
+    }
+  }
+  .large {
+    padding: 0px 30px;
+    height: 40px;
+    & span {
+      font-size: 0.8rem;
+    }
+    &:hover {
+      background-color: #ff3b38af;
+      color: white;
+    }
+    &:active {
+      background-color: #ff3c38;
+      color: white;
+    }
+  }
+  .primary {
+    padding: 0 10px;
+    height: 20px;
+    & span {
+      font-size: 0.4rem;
+    }
+    &:hover {
+      background-color: #ff3b38d7;
+      color: white;
+    }
+    &:active {
+      background-color: #ff3c38;
+      color: white;
+    }
+  }
+  .shoppingCart {
+    padding: 0 22px;
+    height: 32px;
+    & span {
+      font-size: 1rem;
+    }
+    &:hover {
+      background-color: #5c95ffa8;
+      color: white;
+    }
+    &:active {
+      background-color: #5c95ff;
+      color: white;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .small {
+    padding: 0 12px;
+    height: 25px;
+    & span {
+      font-size: 0.4rem;
+    }
+  }
+  .medium {
+    padding: 0 44px;
+    height: 44px;
+    & span {
+      font-size: 1rem;
+    }
+  }
+  .large {
+    padding: 0px 30px;
+    height: 40px;
+    & span {
+      font-size: 0.8rem;
+    }
+    &:hover {
+      background-color: #ff3b38af;
+      color: white;
+    }
+    &:active {
+      background-color: #ff3c38;
+      color: white;
+    }
+  }
+  .primary {
+    padding: 0 10px;
+    height: 20px;
+    & span {
+      font-size: 0.4rem;
+    }
+    &:hover {
+      background-color: #ff3b38d7;
+      color: white;
+    }
+    &:active {
+      background-color: #ff3c38;
+      color: white;
+    }
+  }
+  .shoppingCart {
+    padding: 0 22px;
+    height: 32px;
+    & span {
+      font-size: 1rem;
+    }
+    &:hover {
+      background-color: #5c95ffa8;
+      color: white;
+    }
+    &:active {
+      background-color: #5c95ff;
+      color: white;
+    }
+  }
+}
