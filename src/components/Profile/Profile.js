@@ -1,53 +1,70 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 import style from "./Profile.module.scss";
-import { Bags } from "../../App";
 const Cx = classNames.bind(style);
 
 function Profile() {
-  const navigate = useNavigate();
-  const [account, setAccount] = useContext(Bags).account;
+  let { id } = useParams();
 
-  const [image, setImage] = useState(account.image ? account.image : "");
-  const [fullName, setFullName] = useState(
-    account.firstname ? account.firstname : ""
-  );
-  const [displayName, setDisplayName] = useState(
-    account.lastname ? account.lastname : ""
-  );
-  const [role, setRole] = useState(account.email ? account.email : "");
-  const [location, setLocation] = useState(
-    account.password ? account.password : ""
-  );
-  const [bio, setBio] = useState(account.bio ? account.bio : "");
+  const navigate = useNavigate();
+  const [account, setAccount] = useState({});
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await fetch(
+        `https://api-by-zilong.onrender.com/users/${id}`
+      );
+      const data = await response.json();
+      if (data) {
+        const { Image, firstname, lastname, email, password, bio } = data;
+        setUserImage(Image);
+        setUserFirstname(firstname);
+        setUserLastname(lastname);
+        setUserEmail(email);
+        setUserPassword(password);
+        setUserBio(bio);
+        setAccount(data);
+      }
+    };
+    fetchUser();
+  }, []);
+  const [userImage, setUserImage] = useState("");
+  const [userFirstname, setUserFirstname] = useState("");
+  const [userLastname, setUserLastname] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [userBio, setUserBio] = useState("");
 
   const handleHome = async () => {
-    setAccount({
-      ...account,
-      image,
-      fullName,
-      displayName,
-      role,
-      location,
-    });
-
     const fetchUser = await fetch(
-      `https://api-by-zilong.onrender.com/users/${account.id}`,
+      `https://api-by-zilong.onrender.com/users/${id}`,
       {
-        method: "PUT",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          fullName,
-          displayName,
-          role,
-          location,
-          image,
+          Image: userImage,
+          firstname: userFirstname,
+          lastname: userLastname,
+          password: userPassword,
+          bio: userBio,
+          id: id,
         }),
       }
     );
+    localStorage.setItem(
+      "account",
+      JSON.stringify({
+        Image: userImage,
+        firstname: userFirstname,
+        lastname: userLastname,
+        password: userPassword,
+        bio: userBio,
+        id: id,
+      })
+    );
+    alert("Update Success");
     navigate("/");
   };
   const handleViewAvatar = () => {
@@ -58,8 +75,7 @@ function Profile() {
       const result = fileReader.result;
       const img = document.querySelector(".img");
       img.src = result;
-      setImage(result);
-      console.log(result);
+      setUserImage(result);
     };
     fileReader.readAsDataURL(file.files[0]);
   };
@@ -73,12 +89,14 @@ function Profile() {
       <div className={Cx("popup__in")}>
         <h1>Profile</h1>
         <div className={Cx("popup_user")}>
-          <div className={Cx("popup__category")}>Your Avatar</div>
+          <div className={Cx("popup__category")}>
+            {userFirstname} {userLastname}
+          </div>
           <div className={Cx("popup__line")}>
             <div className={Cx("popup_user__image")}>
               <img
                 className={Cx("img")}
-                src={image || "https://via.placeholder.com/80/fff.png"}
+                src={userImage || "https://via.placeholder.com/80/fff.png"}
                 alt="avatar"
               />
             </div>
@@ -114,8 +132,8 @@ function Profile() {
                 <input
                   className={Cx("field__input")}
                   type="text"
-                  value={fullName ?? ""}
-                  onChange={(e) => setFullName(e.target.value)}
+                  value={userFirstname ?? ""}
+                  onChange={(e) => setUserFirstname(e.target.value)}
                 />
               </div>
             </div>
@@ -125,8 +143,8 @@ function Profile() {
                 <input
                   className={Cx("field__input")}
                   type="text"
-                  value={displayName ?? ""}
-                  onChange={(e) => setDisplayName(e.target.value)}
+                  value={userLastname ?? ""}
+                  onChange={(e) => setUserLastname(e.target.value)}
                 />
               </div>
             </div>
@@ -138,8 +156,8 @@ function Profile() {
                 <input
                   className={Cx("field__input")}
                   type="text"
-                  value={role ?? ""}
-                  onChange={(e) => setRole(e.target.value)}
+                  value={userEmail ?? ""}
+                  onChange={(e) => setUserEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -149,8 +167,8 @@ function Profile() {
                 <input
                   className={Cx("field__input")}
                   type="text "
-                  value={location ?? ""}
-                  onChange={(e) => setLocation(e.target.value)}
+                  value={userPassword ?? ""}
+                  onChange={(e) => setUserPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -160,8 +178,8 @@ function Profile() {
             <div className={Cx("field__label")}>Bio</div>
             <textarea
               className={Cx("field__textarea")}
-              value={bio ?? ""}
-              onChange={(e) => setBio(e.target.value)}
+              value={userBio ?? ""}
+              onChange={(e) => setUserBio(e.target.value)}
             ></textarea>
           </div>
         </div>

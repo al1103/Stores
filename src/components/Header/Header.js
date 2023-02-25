@@ -25,13 +25,16 @@ function Header() {
   const store = { show: [show, setShow] };
   const [visible, setVisible] = useState(false);
 
-  document.addEventListener("click", function handleClick(event) {
-    const hasClass = event.target.classList.contains(cx("content"));
-  });
   useEffect(() => {
     const countItems = JSON.parse(localStorage.getItem("cart")) || [];
     setCount(countItems.length);
   }, []);
+  const Account_Image = JSON.parse(localStorage.getItem("account"));
+  let Image, id;
+
+  if (Account_Image) {
+    ({ Image, id } = Account_Image);
+  }
 
   const SettingAccount = [
     {
@@ -284,7 +287,7 @@ function Header() {
                                       alert("English");
                                       break;
                                     case "view profile":
-                                      navigate("/profile");
+                                      navigate(`/profile/${id}`);
                                       break;
                                     default:
                                       break;
@@ -306,10 +309,7 @@ function Header() {
                         setVisible(!visible);
                       }}
                     >
-                      <img
-                        src="https://i.pinimg.com/736x/a7/8e/00/a78e00aeb140ebce8a5c32a0d741b16a.jpg"
-                        alt=""
-                      />
+                      <img src={Image} alt="" />
                     </div>
                   </Tippy>
                 )
@@ -416,7 +416,7 @@ function Header() {
                                   alert("English");
                                   break;
                                 case "view profile":
-                                  navigate("/profile");
+                                  navigate(`/profile/${id}`);
                                   break;
                                 default:
                                   break;
@@ -438,7 +438,7 @@ function Header() {
                     setVisible(!visible);
                   }}
                 >
-                  <img src={avatar} alt="avatar" />
+                  <img src={Image} alt="avatar" />
                 </div>
               </Tippy>
             )

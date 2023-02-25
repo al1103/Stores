@@ -41,6 +41,8 @@ function SignUp() {
           <Formik
             className={cx("form")}
             initialValues={{
+              image: "",
+              bio: "",
               firstname: "",
               lastname: "",
               email: "",
@@ -145,6 +147,7 @@ function SignUp() {
               alert("suscess");
               setTimeout(() => {
                 setSubmitting(false);
+                localStorage.setItem("account", JSON.stringify(values));
                 navigate("/");
               }, 3000);
             }}

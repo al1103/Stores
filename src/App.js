@@ -112,7 +112,7 @@ function App() {
           <Route path="/gio" element={<Cart />}></Route>
           <Route path="/Contact" element={<Contact />}></Route>
           <Route path="/Search/:id" element={<SearchItems />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/profile/:id" element={<Profile />}></Route>
           <Route path="/Error" element={<Error />}></Route>
         </Routes>
       </Bags.Provider>

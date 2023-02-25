@@ -30,7 +30,11 @@
 .popup__category{
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 20px 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--text-primary);
 }
 .popup__line{
     width: 100%;
@@ -39,6 +43,7 @@
     align-items: center;
     margin-bottom: 32px;
     padding-bottom: 32px;
+        flex-wrap: wrap;
     border-bottom: 1px solid #000;
 
 }
@@ -199,9 +204,10 @@
     color: #ffffff;
     margin-bottom: 20px;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 1024px) {
     .popup{
-        width: 80%;
+        width: 85%;
     }
     .popup__line{
         flex-direction: column;
@@ -240,6 +246,9 @@
     .btn_purple{
         width: 100%;
     margin-top: 20px;}
+    .Profile_popup__in__Lplqt{
+        width: 95%;
+    }
 }
     
 @media screen and (max-width: 480px) {

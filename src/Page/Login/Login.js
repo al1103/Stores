@@ -36,6 +36,7 @@ function Login() {
       if (data[0].password === value.password) {
         alert("success", "Đăng nhập thành công");
         setAccount(data[0]);
+        console.log(data[0]);
         localStorage.setItem("account", JSON.stringify(data[0]));
         setTimeout(() => {
           Navigator("/");
@@ -120,8 +121,8 @@ function Login() {
           handleSubmit(values);
           setTimeout(() => {
             setSubmitting(false);
-            // setAccount(true);
-            // navigate("/");
+            setAccount(values);
+            navigate("/");
           }, 1000);
         }}
       >
