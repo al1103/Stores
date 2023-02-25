@@ -41,7 +41,7 @@ function SignUp() {
           <Formik
             className={cx("form")}
             initialValues={{
-              image: "",
+              Image: "",
               bio: "",
               firstname: "",
               lastname: "",

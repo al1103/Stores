@@ -82,6 +82,7 @@ function Profile() {
   const remoteAvatar = () => {
     const img = document.querySelector(".img");
     img.src = "https://via.placeholder.com/80/fff.png ";
+    setUserImage("https://via.placeholder.com/80/fff.png ");
   };
 
   return (
