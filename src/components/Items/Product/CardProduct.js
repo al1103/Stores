@@ -11,7 +11,6 @@ function CardProduct({ props, onClick }) {
   const { id, image, name, price, sale, rating } = props;
   return (
     <div className={cx("card")}>
-      {console.log(rating)}
       <Link to={`/items/${id}`}>
         <div className={cx("card__image")}>
           <img

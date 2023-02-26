@@ -17,6 +17,7 @@ const avatar = user ? user.image : "https://via.placeholder.com/80/fff.png";
 
 function Header() {
   let navigate = useNavigate();
+  const [popup, setPopup] = useState(false);
   const [Setting, setSetting] = useState(false);
   const [account, setAccount] = useContext(Bags).account;
   const [theme, setTheme] = useContext(Bags).theme;
@@ -35,7 +36,9 @@ function Header() {
   if (Account_Image) {
     ({ Image, id_user } = Account_Image);
   }
-
+  function handleSubmit() {
+    account ? show() : setPopup(true);
+  }
   const SettingAccount = [
     {
       id: 1,
@@ -408,6 +411,7 @@ function Header() {
                                   break;
                                 case "Sign out":
                                   setAccount(null);
+                                  localStorage.removeItem("account");
                                   break;
                                 case "Vietnamese":
                                   alert("Vietnamese");

@@ -7,11 +7,13 @@ import { Bags } from "../../App";
 const cx = classNames.bind(style);
 function Main() {
   const Notification = { ...useContext(Bags).ref[0] };
+  const [popup, setPopup] = useContext(Bags).popup;
   const [main, setMain] = useState(true);
   const [productsItem, setProductsItem] = useState([]);
   const [cartItem, setCartItem] = useState([]);
-
+  const [account, setAccount] = useContext(Bags).account;
   const [classShow] = useState("top-right");
+
   const show = () => {
     Notification.current.classList.add(classShow);
     setTimeout(() => {
@@ -21,7 +23,6 @@ function Main() {
   const hidden = () => {
     Notification.current.classList.remove(classShow);
   };
-
   async function getProducts(Products) {
     try {
       let response = await fetch(
@@ -37,39 +38,31 @@ function Main() {
       setMain(false);
     }
   }
-  // useEffect(() => {
-  //   getProducts("users");
-  //   console.log(productsItem);
-  // }, []);
-
-  // var end = console.timeEnd("getProducts");
-  // console.log(end);
-  // console.log(end);
   function handleAdd(product) {
     addToCart(product);
-    show();
-    // stopScroll();
   }
-  // function stopScroll() {
-  //   notification.current.style.top = 12 + "px";
-  // }
 
   function addToCart(product) {
-    // lấy tất cả sản phẩm trong danh sách sản phẩm truyền vào từ props của component CardProduct (Product.js) và so sánh với id sản phẩm truyền vào từ props của component CardProduct (Product.js) nếu trùng thì lấy sản phẩm đó ra và gán vào biến Items (lấy sản phẩm trong danh sách sản phẩ m) và nếu không trùng thì trả về undefined (không lấy sản phẩm trong danh sách sản phẩm) và nếu trả về undefined thì không thực hiện các câu lệnh bên trong if (Items) và nếu trả về sản phẩm trong danh sách sản phẩm thì thực hiện các câu lệnh bên trong if (Items) và gán giá trị của biến Items vào biến newCart (lấy tất cả sản phẩm trong giỏ hàng) và tìm sản phẩm trong giỏ hàng và nếu không tìm thấy sản phẩm trong giỏ hàng thì thêm sản phẩm đó vào giỏ hàng và nếu tìm thấy sản phẩm trong giỏ hàng thì tăng số lượng sản phẩm trong giỏ hàng lên 1 đơn vị và gán giá trị của biến newCart vào biến cartItem (lấy tất cả sản phẩm trong giỏ hàng)
-    const newCart = [...cartItem];
-    const Items = productsItem.find((item) => item.id === product.id);
-    if (Items) {
-      const index = newCart.findIndex((item) => item.id === product.id);
-      if (index < 0) {
-        newCart.push({
-          ...Items,
-          quantity: 1,
-        });
-      } else {
-        newCart[index].quantity += 1;
+    if (!!account) {
+      const newCart = [...cartItem];
+      const Items = productsItem.find((item) => item.id === product.id);
+      if (Items) {
+        const index = newCart.findIndex((item) => item.id === product.id);
+        if (index < 0) {
+          newCart.push({
+            ...Items,
+            quantity: 1,
+          });
+        } else {
+          newCart[index].quantity += 1;
+        }
+        //
+        setCartItem(newCart);
+        show();
       }
-      //
-      setCartItem(newCart);
+    } else {
+      setPopup(true);
+      console.log(popup);
     }
   }
   useEffect(() => {

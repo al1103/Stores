@@ -8,7 +8,6 @@ import Freeship from "../../components/Advertisement/representative/Freeship/Fre
 import News from "../../components/News/News";
 import Cart from "../../components/Cart/Cart";
 import Footer from "../../components/Footer/Footer";
-// eslint-disable-next-line
 
 function Home() {
   return (

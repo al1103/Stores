@@ -16,67 +16,12 @@ import Scroll from "./components/scroll/Scroll";
 import Profile from "./components/Profile/Profile";
 import Error from "./Page/Error/Error";
 import Notification from "./components/Notification/Notification";
+import Popup from "./components/Popup_check_login/Popup";
 export const Bags = createContext();
-
 function App() {
   //c1:
   const ref = useRef();
-
-  // const [isLoading, setLoading] = useState(true);
-  // function someRequest() {
-  //   return new Promise((resolve) => setTimeout(() => resolve(), 2000));
-  // }
-
-  // useEffect(() => {
-  //   someRequest().then(() => {
-  //     const loaderElement = document.querySelector(".loading");
-  //     if (loaderElement) {
-  //       loaderElement.style.visibility = "hidden";
-  //       setLoading(!isLoading);
-  //     }
-  //   });
-  // }, []);
-
-  //c2
-  // const [playAnimation, setPlayAnimation] = useState(false);
-  // useEffect(() => {
-  //   const onPageLoad = () => {
-  //     setPlayAnimation(true);
-  //   };
-
-  // Check if the page has already loaded
-  //   if (document.readyState === "complete") {
-  //     onPageLoad();
-  //   } else {
-  //     window.addEventListener("load", onPageLoad);
-  //     const loaderElement = document.querySelector(".loading");
-  //     loaderElement.style.visibility = "hidden";
-
-  //     // Remove the event listener when component unmounts
-  //     return () => window.removeEventListener("load", onPageLoad);
-  //   }
-  // }, []);
-  // useEffect(() => {
-  //   window.onload = function () {
-  //     function stopScroll() {
-  //       document.body.style.overflow = "hidden";
-  //       ref.current.style.top = window.scrollY + "px";
-  //       ref.current.style.visibility = "visible";
-  //       const scroll = setTimeout(() => {
-  //         ref.current.style.visibility = "hidden";
-
-  //         startScroll();
-  //       }, 1000);
-  //       return () => {
-  //         clearTimeout(scroll);
-  //       };
-  //     }
-
-  //     function startScroll() {
-  //       document.body.style.overflow = "auto";
-  //     }
-  //   };
-  // }, []);
+  const [popup, setPopup] = useState(false);
 
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const [theme, setTheme] = useLocalStorage(
@@ -87,13 +32,12 @@ function App() {
   const [account, setAccount] = useState(
     storedAccount ? JSON.parse(storedAccount) : null
   );
-  console.log(account);
   const [showBag, setShowBag] = useState(false);
-
   const Bag = {
     Bag: [showBag, setShowBag],
     theme: [theme, setTheme],
     account: [account, setAccount],
+    popup: [popup, setPopup],
     ref: [ref],
   };
   // if (isLoading) {
@@ -118,9 +62,10 @@ function App() {
           <Route path="/profile/:id" element={<Profile />}></Route>
           <Route path="/Error" element={<Error />}></Route>
         </Routes>
+        <Popup></Popup>
+        <Notification ref={ref}></Notification>
       </Bags.Provider>
       <Scroll />
-      <Notification ref={ref}></Notification>
     </div>
   );
 }
