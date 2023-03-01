@@ -10,8 +10,8 @@ function Error() {
     setTimeout(function () {
       var se = setInterval(function () {
         i++;
-        document.getElementsByTagName("code")[n].innerHTML =
-          str.slice(0, i) + "|";
+        // document.getElementsByTagName("code")[n].innerHTML =
+        //   str.slice(0, i) + "|";
         if (i === str.length) {
           clearInterval(se);
           document.getElementsByTagName("code")[n].innerHTML = str;
@@ -22,8 +22,8 @@ function Error() {
   }
   useEffect(() => {
     lengthText(0, 100);
-    lengthText(1, 600);
-    lengthText(2, 1000);
+    lengthText(1, 1000);
+    lengthText(2, 2000);
   }, []);
   return (
     <div className={cx("a404")}>
