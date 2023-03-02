@@ -103,7 +103,7 @@
 .product__name{
   grid-column: 5/11;
   display: flex;
-  align-items: start;
+  align-items:flex-start;
   font-size: 16px;
   flex-wrap: wrap;
   font-weight: 700;

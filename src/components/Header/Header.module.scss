@@ -102,7 +102,6 @@
   z-index: 9;
   top: 0;
   right: 0;
-  background-color: #ffffff;
 }
 .closeNavbar{
   width: 100%;
@@ -128,15 +127,17 @@
   }
 }
 .search__mobile {
-  height: 30px;
+  height: fit-content;
   z-index: 100;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.search__mobile {
   width: 100%;
-  height: 30px;
+}
+.search__
+{
+  width: 100%;
+  height: 100%;
 }
 .close {
   position: absolute;
@@ -221,6 +222,7 @@
 .navita {
   width: 100%;
 }
+
 .show__setting {
   outline: none;
   position: absolute;
@@ -262,6 +264,7 @@
 @media screen and (max-width: 762px) {
   .header{
     height: 40px;
+    background-color: var(--background);
   }
   .below{
     width: 100%;
@@ -273,7 +276,6 @@
     width: 100px;
     float: left;
     height: 50px;
-    margin: 0 10px;
     & img{
       width: 100%;
       height: 100%;
@@ -291,18 +293,27 @@
 }
 @media screen and (max-width: 480px) {
   .header {
-    height: 50px;
+    height: 40px;
   }
-
+  .closeNavbar {
+    margin: 0;
+  }
+  .button__Bag{
+    width: 24px;
+  }
   .headerLeft {
     width: 50%;
-
-    & .logo {
-      width: 100px;
-      margin: 0 10px;
-    }
   }
-
+.logo {
+      width: 100px;
+    }
+    .logo_mobile{
+      margin: 0;
+    }
+    .button{
+      padding: 5px 25px;
+      font-size: 12px;
+    }
   .setting {
     position: absolute;
     right: 0;
@@ -310,7 +321,6 @@
     z-index: 1;
     width: 50%;
     height: 100%;
-
     & .show__setting {
       outline: none;
       position: absolute;
@@ -335,5 +345,8 @@
 
   .three {
     display: none;
+  }
+  .IconClose{
+    margin-right: 20px;
   }
 }

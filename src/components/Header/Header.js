@@ -138,14 +138,8 @@ function Header() {
 
   function FixedScroll(e) {
     if (e) {
-      // var x = window.scrollX;
-      // var y = window.scrollY;
-      // window.onscroll = function () {
-      //   window.scrollTo(x, y);
-      // };
       document.body.style.overflow = "hidden";
     } else {
-      // window.onscroll = function () {};
       document.body.style.overflow = "auto";
     }
   }
@@ -166,7 +160,7 @@ function Header() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="1.5"
+                strokeWidth="1"
                 stroke="currentColor"
               >
                 <path
@@ -190,7 +184,7 @@ function Header() {
                       stroke="currentColor"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth="32"
+                      strokeWidth="20"
                       d="M368 368L144 144M368 144L144 368"
                     />
                   </svg>
@@ -201,9 +195,7 @@ function Header() {
                   <Search></Search>
                 </generalShow.Provider>
               </div>
-              <div className={cx("Nav")}>
-                <Nav></Nav>
-              </div>
+              <Nav></Nav>
             </div>
           </div>
         )}
@@ -221,7 +213,7 @@ function Header() {
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="32"
+                  strokeWidth="20"
                   d="M80 176a16 16 0 00-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 00-16-16zM160 176v-32a96 96 0 0196-96h0a96 96 0 0196 96v32"
                 />
               </svg>
